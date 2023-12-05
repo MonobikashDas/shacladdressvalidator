@@ -1,0 +1,83 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix schema: <http://schema.org/>.
+@prefix ex: <https://raw.githubusercontent.com/ase-101/testvocab/main/example-vocab.ttl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+
+ex:User a rdfs:Class ;
+    rdfs:label "User" ;
+    rdfs:subClassOf schema:Person .
+
+ex:residence a rdf:Property ;
+    rdfs:label "Residence" ;
+    rdfs:domain ex:User ;
+    rdfs:range ex:Address .
+
+ex:Address a rdfs:Class .
+
+ex:streetNumber a rdf:Property ;
+    rdfs:domain ex:Address ;
+    rdfs:range xsd:integer .
+
+ex:streetName rdf:Property ;
+    rdfs:domain ex:Address ;
+    rdfs:range xsd:string .
+
+ex:floor rdf:Property ;
+    rdfs:domain ex:Address ;
+    rdfs:range xsd:integer .
+
+ex:postalCode a rdf:Property ;
+    rdfs:domain ex:City ;
+    rdfs:range ex:PostalCode .
+
+ex:city a rdf:Property ;
+    rdfs:domain ex:District ;
+    rdfs:range ex:City .
+
+ex:district a rdf:Property ;
+    rdfs:domain ex:State ;
+    rdfs:range ex:District .
+
+ex:state a rdf:Property ;
+    rdfs:domain ex:Country ;
+    rdfs:range ex:State .
+
+ex:country a rdf:Property ;
+    rdfs:domain ex:Address ;
+    rdfs:range ex:Country .
+
+ex:City a rdfs:Class .
+ex:District a rdfs:Class .
+ex:State a rdfs:Class .
+ex:Country a rdfs:Class .
+ex:PostalCode a rdfs:Class .
+
+
+ex:UserShape a sh:NodeShape;
+   sh:targetClass ex:User ;
+   sh:property [            
+    sh:path     schema:name ;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+   sh:path schema:gender ;
+   sh:minCount 1;
+   sh:maxCount 1;
+   sh:in ( schema:Male schema:Female ) ;
+  ] ;
+  sh:property [
+   sh:path schema:birthDate ;
+   sh:minCount 1;
+   sh:maxCount 1;
+   sh:datatype xsd:date ;
+  ] ;
+  sh:property [ 
+   sh:path ex:residence ;
+   sh:minCount 1;
+   sh:maxCount 1;
+   sh:class  ex:Address ;
+  ] .
