@@ -1,0 +1,107 @@
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix ex: <https://raw.githubusercontent.com/ase-101/testvocab/main/example-vocab.ttl#> .
+@prefix ex2: <https://raw.githubusercontent.com/ase-101/testvocab/main/example-vocab2.ttl#> .
+
+ex2:India a ex:Country .
+ex2:Karnataka a ex:State .
+ex2:TamilNadu a ex:State .
+ex2:Bangalore a ex:District  .
+ex2:Mysore a ex:District .
+ex2:Chennai a ex:District  .
+ex2:Hosur a ex:District  .
+ex2:Banashankari a ex:City  .
+ex2:TNagar a ex:City .
+ex2:PalaceRoad a ex:City  .
+ex2:HillRoad a ex:City  .
+ex2:561100 a ex:PostalCode .
+ex2:562100 a ex:PostalCode .
+ex2:563100 a ex:PostalCode .
+ex2:564100 a ex:PostalCode .
+
+ex:AddressShape a sh:NodeShape;
+  sh:targetClass ex:Address ;
+  sh:property [            
+    sh:path   ex:streetNumber ;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:datatype xsd:integer ;
+  ] ;
+  sh:property [            
+    sh:path   ex:streetName ;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [            
+    sh:path   ex:floor ;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:datatype xsd:integer ;
+  ] ;
+  sh:property [            
+    sh:path   ex:country ;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:in ( ex2:India ) ;
+  ] .
+
+
+ex:IndiaShape a sh:NodeShape ;
+  sh:targetNode ex2:India ;
+  sh:property [          
+    sh:path ex:state ;
+    sh:targetClass ex:State ;  
+    sh:minCount 1;   
+    sh:maxCount 1 ;
+    sh:in ( ex2:Karnataka ex2:TamilNadu ) ;
+  ] .
+
+ex:KarnatakaShape a sh:NodeShape ;
+  sh:targetClass ex2:Karnataka ;
+  sh:property [          
+    sh:path ex:district ;
+    sh:targetClass ex:District ;     
+    sh:maxCount 1 ;
+    sh:in ( ex2:Bangalore ex2:Mysore ) ;
+  ] .
+
+ex:TamilNaduShape a sh:NodeShape ;
+  sh:targetClass ex2:TamilNadu ;
+  sh:property [          
+    sh:path ex:district ;  
+    sh:targetClass ex:District ;     
+    sh:maxCount 1 ;
+    sh:in ( ex2:Chennai ex2:Hosur ) ;
+  ] .
+
+ex:BangaloreShape a sh:NodeShape ;
+  sh:targetClass ex2:Bangalore ;
+  sh:property [          
+    sh:path ex:city ;       
+    sh:maxCount 1 ;
+    sh:in ( ex2:Banashankari ) ;
+  ] .
+
+ex:MysoreShape a sh:NodeShape ;
+  sh:targetClass ex2:Mysore ;
+  sh:property [          
+    sh:path ex:city ;       
+    sh:maxCount 1 ;
+    sh:in ( ex2:PalaceRoad ) ;
+  ] .
+
+ex:ChennaiShape a sh:NodeShape ;
+  sh:targetClass ex2:Chennai ;
+  sh:property [          
+    sh:path ex:city ;       
+    sh:maxCount 1 ;
+    sh:in ( ex2:TNagar ) ;
+  ] .
+
+ex:HosurShape a sh:NodeShape ;
+  sh:targetClass ex2:Hosur ;
+  sh:property [          
+    sh:path ex:city ;       
+    sh:maxCount 1 ;
+    sh:in ( ex2:HillRoad ) ;
+  ] .
