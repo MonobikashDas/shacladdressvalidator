@@ -1,0 +1,71 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix basev: <https://raw.githubusercontent.com/ase-101/testvocab/main/base.ttl#> .
+
+basev: rdf:type owl:Ontology ;
+    # Description
+    dcterms:title "Test Domain ontology" ;
+    dcterms:description """
+    Includes definitions for Things relating to Test Domains
+    """ .
+
+basev:State a rdfs:Class ;
+    rdfs:label "State"@en ;
+    rdfs:comment "Represents a state"@en .
+
+basev:District a rdfs:Class ;
+    rdfs:label "District"@en ;
+    rdfs:comment "Represents a District inside a state"@en .
+
+basev:City a rdfs:Class ;
+    rdfs:label "City"@en ;
+    rdfs:comment "Represents a City inside a District"@en .
+
+basev:district a rdf:Property ;
+    rdfs:label "district"@en ;
+    rdfs:domain basev:State ;
+    rdfs:range basev:District .
+
+basev:city a rdf:Property ;
+    rdfs:label "city"@en ;
+    rdfs:domain basev:District ;
+    rdfs:range basev:City .
+
+#### 
+basev:Karnataka a rdfs:Class ;
+    rdfs:subclassOf basev:State  .
+
+basev:TamilNadu a rdfs:Class ;
+    rdfs:subclassOf basev:State  .
+
+basev:Bangalore a rdfs:Class ;
+    rdfs:subclassOf basev:District  .
+
+basev:Mysore a rdfs:Class ;
+    rdfs:subclassOf basev:District  .
+
+basev:Chennai a rdfs:Class ;
+    rdfs:subclassOf basev:District  .
+
+basev:Hosur a rdfs:Class ;
+    rdfs:subclassOf basev:District  .
+
+basev:Banashankari a rdfs:Class ;
+    rdfs:subclassOf basev:City  .
+
+basev:TNagar a rdfs:Class ;
+    rdfs:subclassOf basev:City  .
+
+basev:PalaceRoad a rdfs:Class ;
+    rdfs:subclassOf basev:City  .
+
+basev:HillRoad a rdfs:Class ;
+    rdfs:subclassOf basev:City  .
