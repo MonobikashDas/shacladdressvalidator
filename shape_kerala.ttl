@@ -1,0 +1,25 @@
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix schema: <http://schema.org/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix ex: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/resident-context.ttl#> .
+@prefix ex2: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/address-context.ttl#> .
+
+
+
+ex:KeralaShape a sh:NodeShape ;
+  sh:targetClass ex2:Kerala ;
+  sh:property [          
+    sh:path ex:district ;  
+    sh:targetClass ex:District ;     
+    sh:maxCount 1 ;
+    sh:in ( ex2:Wayanad ex2:Kozhikode ex2:Thiruvananthapuram ) ;
+  ] .
+
+ex:WayanadShape a sh:NodeShape ;
+  sh:targetClass ex2:Wayanad ;
+  sh:property [          
+    sh:path ex:city ;       
+    sh:maxCount 1 ;
+    sh:in ( ex2:Munnar ) ;
+  ] .

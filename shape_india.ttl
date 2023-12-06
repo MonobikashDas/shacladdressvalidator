@@ -1,0 +1,17 @@
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix schema: <http://schema.org/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix ex: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/example-vocab.ttl#> .
+@prefix ex2: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/example-vocab2.ttl#> .
+
+
+ex:IndiaShape a sh:NodeShape ;
+  sh:targetNode ex2:India ;
+  sh:property [          
+    sh:path ex:state ;
+    sh:targetClass ex:State ;  
+    sh:minCount 1;
+    sh:maxCount 1 ;
+    sh:in ( ex2:Karnataka ex2:TamilNadu ex2:Goa ex2:Kerala ) ;
+  ] .
