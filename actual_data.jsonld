@@ -1,0 +1,47 @@
+{
+  "@context": {
+    "ex": "https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/resident-context.ttl#",
+    "ex2": "https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/address-context.ttl#",
+    "schema": "http://schema.org/",
+    "n": {
+      "@id": "schema:name"
+    },
+    "gender": {
+      "@id": "schema:gender"
+    },
+    "residence": {
+      "@id": "ex:residence"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "ex:anusha",
+      "@type": "ex:User",
+      "n": "Anusha",
+      "gender": {
+        "@id": "schema:Female"
+      },
+      "residence": {
+        "@type": "ex:Address",
+        "ex:streetNumber": 2,
+        "ex:streetName": "Poets Street",
+        "ex:floor": 3,
+        "ex:country": {
+          "@id": "ex2:India",
+          "ex:state": {
+            "@id": "ex2:Karnataka",
+            "@type": "ex2:Karnataka",
+            "mosip:district": {
+              "@id": "ex2:Bangalore Urban",
+              "@type": "ex2:Bangalore Urban",
+              "mosip:city": {
+                "@id": "ex2:Bangalore",
+                "@type": "ex2:Bangalore"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
