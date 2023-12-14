@@ -2,7 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix schema: <http://schema.org/>.
-@prefix ex: <https://raw.githubusercontent.com/ase-101/testvocab/main/example-vocab.ttl#> .
+@prefix ex: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/example-vocab.ttl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 
 ex:User a rdfs:Class ;
