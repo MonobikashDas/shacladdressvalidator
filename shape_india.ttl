@@ -2,8 +2,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix schema: <http://schema.org/>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix ex: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/example-vocab.ttl#> .
-@prefix ex2: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/example-vocab2.ttl#> .
+@prefix ex: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/resident-context.ttl#> .
+@prefix ex2: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/address-context.ttl#> .
 
 
 ex:IndiaShape a sh:NodeShape ;
