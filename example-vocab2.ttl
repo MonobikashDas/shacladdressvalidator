@@ -1,6 +1,6 @@
 @prefix sh: <http://www.w3.org/ns/shacl#>.
-@prefix ex: <https://raw.githubusercontent.com/ase-101/testvocab/main/example-vocab.ttl#> .
-@prefix ex2: <https://raw.githubusercontent.com/ase-101/testvocab/main/example-vocab2.ttl#> .
+@prefix ex: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/example-vocab.ttl#> .
+@prefix ex2: <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/example-vocab2.ttl#> .
 
 ex2:India a ex:Country .
 ex2:Karnataka a ex:State .
