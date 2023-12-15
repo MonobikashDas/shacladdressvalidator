@@ -1,0 +1,4 @@
+@prefix ex: <http://example.org/shapes#>.
+
+ex:shape_karnatakaURL ex:url <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/shape_karnataka.ttl> .
+ex:shape_indiaURL ex:url <https://raw.githubusercontent.com/MonobikashDas/shacladdressvalidator/main/shape_india.ttl> .
